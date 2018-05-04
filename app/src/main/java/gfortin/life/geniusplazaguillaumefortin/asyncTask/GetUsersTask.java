@@ -26,14 +26,13 @@ import gfortin.life.geniusplazaguillaumefortin.model.User;
 public class GetUsersTask extends AsyncTask<Void, Void, ListView> {
 
     private String url;
-    private String TAG;
+    private static final String TAG = GetUsersTask.class.getSimpleName();
     private ArrayList<User> userList;
     private Activity activity;
     private ListView lv;
 
-    public GetUsersTask(String url, String TAG, Activity activity, ListView lv) {
+    public GetUsersTask(String url, Activity activity, ListView lv) {
         this.url = url;
-        this.TAG = TAG;
      //   this.userList = userList;
         this.activity = activity;
         this.lv = lv;

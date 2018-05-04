@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView lv = findViewById(R.id.list);
         String url = "https://reqres.in/api/users";
-        new GetUsersTask(url, TAG, this,lv).execute();
+        new GetUsersTask(url, this,lv).execute();
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 

@@ -32,7 +32,7 @@
             android:layout_weight="1"
             android:paddingBottom="2dip"
             android:paddingTop="6dip"
-            android:text="@string/firstName"
+            android:text="@string/first_name"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingBottom="2dip"
-            android:text="@string/lastName"
+            android:text="@string/last_name"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="24sp"
             android:textStyle="bold" />

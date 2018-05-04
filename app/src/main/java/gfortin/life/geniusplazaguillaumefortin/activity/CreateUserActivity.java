@@ -6,12 +6,20 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import gfortin.life.geniusplazaguillaumefortin.R;
+import gfortin.life.geniusplazaguillaumefortin.handler.HttpHandler;
 
 public class CreateUserActivity extends AppCompatActivity {
+
+    private EditText nameInput, jobInput;
+    private Button submitBtn;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -28,9 +36,6 @@ public class CreateUserActivity extends AppCompatActivity {
                 case R.id.navigation_create_user:
                     intent = new Intent(CreateUserActivity.this, CreateUserActivity.class);
                     CreateUserActivity.this.startActivity(intent);
-                    Toast.makeText(CreateUserActivity.this,"dashboard",Toast.LENGTH_SHORT);
-
-                    ///mTextMessage.setText(R.string.title_dashboard);
                     return true;
             }
             return false;
@@ -42,7 +47,29 @@ public class CreateUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
 
-       // mTextMessage = (TextView) findViewById(R.id.message);
+        nameInput = findViewById(R.id.name_input);
+        jobInput = findViewById(R.id.job_input);
+        submitBtn = findViewById(R.id.submit_btn);
+
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                JSONObject obj = new JSONObject();
+                try {
+                    obj.put("name", nameInput.getText());
+                    obj.put("job", jobInput.getText());
+                    HttpHandler httpHandler = new HttpHandler();
+                    httpHandler.executePost("https://reqres.in/api/users", obj);
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                int jadbv = 0;
+            }
+        });
+
+
+        // mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
