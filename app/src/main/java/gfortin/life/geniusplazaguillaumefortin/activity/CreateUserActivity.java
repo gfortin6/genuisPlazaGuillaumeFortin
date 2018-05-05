@@ -14,7 +14,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import gfortin.life.geniusplazaguillaumefortin.R;
+import gfortin.life.geniusplazaguillaumefortin.asyncTask.CreateUserTask;
 import gfortin.life.geniusplazaguillaumefortin.handler.HttpHandler;
+import gfortin.life.geniusplazaguillaumefortin.services.UserService;
 
 public class CreateUserActivity extends AppCompatActivity {
 
@@ -58,13 +60,12 @@ public class CreateUserActivity extends AppCompatActivity {
                 try {
                     obj.put("name", nameInput.getText());
                     obj.put("job", jobInput.getText());
-                    HttpHandler httpHandler = new HttpHandler();
-                    httpHandler.executePost("https://reqres.in/api/users", obj);
+
+                    UserService.createUser(getApplicationContext(),obj);
                 } catch (JSONException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                int jadbv = 0;
             }
         });
 

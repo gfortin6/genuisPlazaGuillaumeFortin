@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import gfortin.life.geniusplazaguillaumefortin.R;
 import gfortin.life.geniusplazaguillaumefortin.asyncTask.GetUsersTask;
+import gfortin.life.geniusplazaguillaumefortin.services.UserService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         ListView lv = findViewById(R.id.list);
         String url = "https://reqres.in/api/users";
-        new GetUsersTask(url, this,lv).execute();
+
+        UserService.loadUsers(url,this,lv);
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -46,9 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_create_user:
                     intent = new Intent(MainActivity.this, CreateUserActivity.class);
                     MainActivity.this.startActivity(intent);
-                    Toast.makeText(MainActivity.this,"dashboard",Toast.LENGTH_SHORT).show();
-
-                    ///mTextMessage.setText(R.string.title_dashboard);
                     return true;
             }
             return false;
