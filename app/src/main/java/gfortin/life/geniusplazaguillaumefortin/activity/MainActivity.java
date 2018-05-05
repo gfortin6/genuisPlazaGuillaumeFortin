@@ -7,10 +7,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import gfortin.life.geniusplazaguillaumefortin.R;
-import gfortin.life.geniusplazaguillaumefortin.asyncTask.GetUsersTask;
 import gfortin.life.geniusplazaguillaumefortin.services.UserService;
 
 public class MainActivity extends AppCompatActivity {

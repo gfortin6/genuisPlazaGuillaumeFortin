@@ -1,7 +1,5 @@
 package gfortin.life.geniusplazaguillaumefortin.model;
 
-import java.net.URL;
-
 public class User {
 
     protected int id;

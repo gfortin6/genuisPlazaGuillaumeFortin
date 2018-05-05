@@ -1,21 +1,16 @@
 package gfortin.life.geniusplazaguillaumefortin.asyncTask;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
-import gfortin.life.geniusplazaguillaumefortin.activity.MainActivity;
 import gfortin.life.geniusplazaguillaumefortin.adapter.UserAdapter;
 import gfortin.life.geniusplazaguillaumefortin.handler.HttpHandler;
 import gfortin.life.geniusplazaguillaumefortin.model.User;

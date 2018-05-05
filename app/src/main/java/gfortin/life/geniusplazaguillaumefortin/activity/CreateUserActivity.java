@@ -14,14 +14,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import gfortin.life.geniusplazaguillaumefortin.R;
-import gfortin.life.geniusplazaguillaumefortin.asyncTask.CreateUserTask;
-import gfortin.life.geniusplazaguillaumefortin.handler.HttpHandler;
 import gfortin.life.geniusplazaguillaumefortin.services.UserService;
 
 public class CreateUserActivity extends AppCompatActivity {
 
     private EditText nameInput, jobInput;
-    private Button submitBtn;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -51,7 +48,7 @@ public class CreateUserActivity extends AppCompatActivity {
 
         nameInput = findViewById(R.id.name_input);
         jobInput = findViewById(R.id.job_input);
-        submitBtn = findViewById(R.id.submit_btn);
+        Button submitBtn = findViewById(R.id.submit_btn);
 
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +60,6 @@ public class CreateUserActivity extends AppCompatActivity {
 
                     UserService.createUser(getApplicationContext(),obj);
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             }
